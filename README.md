@@ -23,20 +23,20 @@ public class CommandHelp extends Command {}
 
 * Implement Command class methods
 ```java
-  @Override
-	public void execute(String[] args, MessageReceivedEvent e) {
+@Override
+public void execute(String[] args, MessageReceivedEvent e) {
 		
-	}
+}
 	
-	@Override
-	public String getCommand() {
-		return "help";
-	}
+@Override
+public String getCommand() {
+	return "help";
+}
 	
-	@Override
-	public String getHelp() {
-		return "Show all commands";
-	}
+@Override
+public String getHelp() {
+	return "Show all commands";
+}
 ```
 
 * Register your commands
