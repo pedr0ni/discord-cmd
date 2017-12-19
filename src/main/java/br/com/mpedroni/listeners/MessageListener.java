@@ -10,21 +10,23 @@ public class MessageListener extends ListenerAdapter {
 	@Override
 	public void onMessageReceived(MessageReceivedEvent e) {
 		String msg = e.getMessage().getContentDisplay();
-		boolean found = false;
-		
-		String cmd = toCmd(msg);
-		String[] args = getPrams(msg);
-		
-		for (Command cmds : Main.commandManager.getCommands()) {
-			if (cmds.getCommand().toLowerCase().equalsIgnoreCase(cmd.toLowerCase())) {
-				cmds.execute(args, e);
-				found = true;
-				break;
+		if (msg.startsWith(Main.commandManager.PREFIX)) {
+			boolean found = false;
+			String cmd = toCmd(msg);
+			String[] args = getPrams(msg);
+			
+			for (Command cmds : Main.commandManager.getCommands()) {
+				if (cmds.getCommand().toLowerCase().equalsIgnoreCase(cmd.toLowerCase())) {
+					cmds.execute(args, e);
+					found = true;
+					break;
+				}
 			}
-		}
-		
-		if (!found) {
-			e.getTextChannel().sendMessage(":x: Command not found.").queue();
+			
+			if (!found) {
+				e.getTextChannel().sendMessage(":x: Command not found.").queue();
+			}
+			
 		}
 	}
 	
