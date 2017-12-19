@@ -44,6 +44,11 @@ public String getHelp() {
 commandManager.registerCommand(new CommandHelp()); //Register CommandHelp (br.com.mpedroni.example.CommandHelp)
 ```
 
+* Set your commands prefix in CommandManager class
+```java
+public final String PREFIX = "!";
+```
+
 ## Built With
 
 * [JDA](https://github.com/DV8FromTheWorld/JDA) - Java Discord API
